@@ -41,3 +41,14 @@ const nextConfig = {
 };
 
 export default withNextIntl(withMDX(nextConfig));
+
+export async function OPTIONS(request) {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Or your frontend URL
+      "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
